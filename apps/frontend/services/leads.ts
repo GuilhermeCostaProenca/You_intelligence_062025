@@ -10,8 +10,8 @@ const fetcher = (url: string) =>
   });
 
 export function useLeads() {
-  return useSWR<Lead[]>('/leads?skip=0&limit=1000', fetcher, {
+  return useSWR<Lead[]>('/mock/leads.json', fetcher, {
     revalidateOnFocus: false,
-    onErrorRetry: () => {}, // evita loop infinito
+    onErrorRetry: () => {}, 
   });
 }
