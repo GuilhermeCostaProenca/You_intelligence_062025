@@ -4,11 +4,9 @@ export type Lead = {
   lat: number;
   lng: number;
   estado: string;
-
   dicMed: number;
   ficMed: number;
-
   descricao: string;
   CNAE: string;
-  codigoDistribuidora: number;
+  codigoDistribuidora: number | string;
 };

@@ -19,7 +19,7 @@ export default function MapaPage() {
   } = useFilters();
 
   const { order } = useSort();
-  const { data: leads = [] } = useLeads();
+  const { leads } = useLeads();
   const params = useSearchParams();
   const idParam = params?.get?.('id') ?? null;
   const selectedId = idParam ? Number(idParam) : null;

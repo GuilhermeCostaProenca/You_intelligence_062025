@@ -26,7 +26,7 @@ export default function LeadsPage() {
   const { estado, distribuidora, segmento, clearFilters, setEstado, setBusca, busca } = useFilters();
   const { order, setOrder } = useSort();
 
-  const { data: leads = [], isLoading, error } = useLeads();
+  const { leads = [], isLoading, error } = useLeads();
 
   const estados = useMemo<string[]>(() => {
     return Array.from(new Set(leads.map((l) => l.estado))).sort();

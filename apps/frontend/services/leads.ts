@@ -8,10 +8,16 @@ const fetcher = (url: string) =>
     if (!r.ok) throw new Error('Erro ao carregar leads da API');
     return r.json();
   });
-
+// src/services/leads.ts
 export function useLeads() {
-  return useSWR<Lead[]>('/mock/leads.json', fetcher, {
+  const { data, error, isLoading } = useSWR<Lead[]>('/mock/leads.json', fetcher, {
     revalidateOnFocus: false,
-    onErrorRetry: () => {}, 
+    onErrorRetry: () => {},
   });
+
+  return {
+    leads: data ?? [],     // ✅ retorna como leads
+    error,
+    isLoading,
+  };
 }

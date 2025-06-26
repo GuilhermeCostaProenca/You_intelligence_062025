@@ -7,8 +7,7 @@ import { CNAE_SEGMENTOS } from '@/utils/cnae';
 
 export default function FiltroSegmento() {
   const { segmento, setSegmento } = useFilters();
-  const { data: leads = [] } = useLeads();
-
+  const { leads } = useLeads();
   const cnaesUnicos = [...new Set(leads.map((l) => l.CNAE).filter(Boolean))];
 
   return (
